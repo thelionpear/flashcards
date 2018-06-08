@@ -1,9 +1,37 @@
 <html>
+    <head>
+
+    </head>
     <body>
-        <h1 class="heading">FlashCard Creator</h1>
-        <button id="new_card">New Card</button>
-        <button id="study">Start Studying</button>
-        <div class="flashcard_section">
+
+        <div class="study_section">
+            <h1 class="heading">FlashCard Creator</h1>
+            <select id="card_options" name="My_Cards">
+                <option selected disabled>My Cards</option>
+            </select>
+            <button id="study">Start Studying or Next Card</button>
+            <hr />
+            <div class="flashcard_section"></div>
+            <hr />
+            <button id="flip">Flip FlashCard</button>
+
         </div>
+
+        <div class="new_edit_flashcard">
+            <h1>Create or Edit a Card</h1>
+            <select id="card_options2" name="My_Cards">
+                <option selected disabled>My Cards</option>
+            </select>
+            <h2 >Front of Card</h2>
+            <input id="front" type="text"></input>
+            <h2 >Back of Card</h2>
+            <input id="back" type="text"></input>
+            </br>
+            <button id="submit">submit</button>
+            <hr />
+        </div>
+
     </body>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="./js/main.js"></script>
 </html>
