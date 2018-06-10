@@ -1,6 +1,8 @@
 
 var current_card = ""
 var selected_option = "" 
+var key = "" 
+var value = "" 
 flashcard_array = [
     {key: "2 + 2", value: "4"},
     {key: "3 + 3", value: "6"},
@@ -29,17 +31,26 @@ $("#flip").click(function() {
 //I'm also trying to get it to recognize that if the items already have an ID
 //then push that edited item back to the same place in the array
 $("#submit").click(function() {
-    var key = $("#front").val();
-    var value = $("#back").val();
-    //I don't think this is grabbing the index because I'm setting the variable up there 
-    //maybe replace the key.index? with option:selected? and then the push @ index with @selected option
-    (("#card_options2 option:selected")? flashcard_array.splice([(selected_option - 1)], 1, {key, value}) : flashcard_array.push({key, value}   
-)); 
-    debugger 
-    $("#front").val("");
-    $("#back").val("")
-    $('#card_options').append('<option>' + key + '</option>');
-    $('#card_options2').append('<option>' + key + '</option>');
+    key = $("#front").val();
+    value = $("#back").val();
+   
+    if ($("#card_options2 option:selected").text() !== null ) {
+        flashcard_array.splice([(selected_option - 1)], 1, {key, value})
+        selected_option.empty().append('<option>' + (index+1) + ") " + key + '</option>')
+        $("#front").val("");
+        $("#back").val("");
+        debugger 
+    } else  {
+        flashcard_array.push({key, value});  
+        //this clears the input boxes 
+        $("#front").val("");
+        $("#back").val("");
+        //this puts new options onto the array when they're created 
+        $('#card_options').append('<option>' + key + '</option>');
+        $('#card_options2').append('<option>' + key + '</option>');
+    } 
+    
+   
 
 
 })
