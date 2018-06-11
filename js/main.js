@@ -41,8 +41,7 @@ $("#submit").click(function() {
         $("#card_options2 option").eq(selected_option).text((selected_option) + ") " + key)
         $("#card_options option").eq(selected_option).text((selected_option) + ") " + key)
         $("#front").val("");
-        $("#back").val("");
-        debugger 
+        $("#back").val(""); 
     } else  {
         flashcard_array.push({key, value});  
         //this clears the input boxes 
@@ -51,12 +50,19 @@ $("#submit").click(function() {
         //this puts new options onto the array when they're created 
         $('#card_options').append('<option>' + key + '</option>');
         $('#card_options2').append('<option>' + key + '</option>');
-    } 
-    
-   
-
-
+    }
 })
+    
+$("#delete").click(function() {
+    flashcard_array.splice([(selected_option - 1)], 1)
+    $("#card_options2 option").eq(selected_option).remove()
+    $("#card_options option").eq(selected_option).remove()
+    $("#front").val("");
+    $("#back").val(""); 
+})
+
+
+
 //this is where I append all of my array items onto the dropwdowns 
 $.each(flashcard_array, function(index, flashcard) {
     $('#card_options').append('<option>' + (index+1) + ") " + flashcard.key + '</option>');
