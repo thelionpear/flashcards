@@ -36,7 +36,10 @@ $("#submit").click(function() {
    
     if ($("#card_options2 option:selected").text() !== null ) {
         flashcard_array.splice([(selected_option - 1)], 1, {key, value})
-        selected_option.empty().append('<option>' + (index+1) + ") " + key + '</option>')
+        // $("#card_options2 option[value = '" + (selected_option) + "']").remove()
+        // append('<option>' + (selected_option - 1) + ") " + key + '</option>')
+        $("#card_options2 option").eq(selected_option).text((selected_option) + ") " + key)
+        $("#card_options option").eq(selected_option).text((selected_option) + ") " + key)
         $("#front").val("");
         $("#back").val("");
         debugger 
